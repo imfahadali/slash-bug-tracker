@@ -9,7 +9,7 @@ const Welcome = (props: Props) => {
         Slash
       </h1>
 
-      <div className="bg-gradient-to-r from-blue-500 font-medium w-4/5 via-blue-700 to-blue-900 italic bg-clip-text text-transparent">
+      <div className="bg-gradient-to-r from-blue-500 font-medium w-4/5 text-center via-blue-700 to-blue-900 italic bg-clip-text text-transparent">
         Welcome to our bug tracker! We're glad you're here. Our mission is to
         help you report and track issues, so we can work together to make our
         product better. With this tool, you can easily submit bugs and feature
