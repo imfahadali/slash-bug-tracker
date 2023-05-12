@@ -20,11 +20,13 @@ import UserContext from "./context/UserContext";
 import Tickets from "./pages/Tickets";
 import Analytics from "./pages/Analytics";
 import { BACKEND_API } from "./utils/constants";
+import Welcome from "./pages/Welcome";
 
 const getRouter = (token: string) => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Welcome />} />
         <Route path="/project">
           <Route
             index
@@ -33,7 +35,6 @@ const getRouter = (token: string) => {
             //   url: `${BACKEND_API}/project`,
             //   token,
             // })}
-            
           />
           <Route path="new" element={<NewProject />} />
           <Route path=":id" element={<ProjectInfo />} />
