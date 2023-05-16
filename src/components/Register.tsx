@@ -7,6 +7,7 @@ import UserContext from "../context/UserContext";
 import useForm from "../hooks/useForm";
 import { registerUser } from "../utils/helperFunction";
 import { RegistrationValidation } from "../utils/constants";
+import LoadingSpinner from "./LoadingSpinner";
 
 type Props = {
   setRegister: (val: boolean) => void;
@@ -16,17 +17,19 @@ const Register = ({ setRegister }: Props) => {
   const { setState } = useContext(UserContext);
 
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmission = async (values: any, { setSubmitting }: any) => {
     //TODO: handle case if the user upload file other than image
     // const isImage = credentials.profile.type.split("/")[0] === "image";
     // if (!isImage) return setValError("Only image is allowed");
-
+    setIsLoading(true);
     const res = await registerUser(values);
     if (res?.status === 201) setState.setUser(res.data);
     else setError(res?.data);
 
     setSubmitting(false);
+    setIsLoading(false);
   };
 
   return (
@@ -72,7 +75,11 @@ const Register = ({ setRegister }: Props) => {
                   <span className="underline">conditions</span>
                 </p>
               </div>
-              <div className="p-5 bg-white md:flex-1">
+              <div
+                className={`relative p-5 bg-white md:flex-1 ${
+                  isLoading ? "opacity-25" : ""
+                }`}
+              >
                 <h3 className="my-4 text-2xl font-semibold text-gray-700">
                   Account Register
                 </h3>
@@ -178,6 +185,7 @@ const Register = ({ setRegister }: Props) => {
                   {error && (
                     <div className="text-red-500 text-right">{error}</div>
                   )}
+
                   <div className="flex items-center space-x-2">
                     <input
                       type="checkbox"
@@ -201,6 +209,11 @@ const Register = ({ setRegister }: Props) => {
                     </button>
                   </div>
                 </form>
+                {isLoading && (
+                  <span className="absolute top-1/2 left-1/2 -translate-y-5 -translate-x-1/2">
+                    <LoadingSpinner />
+                  </span>
+                )}
               </div>
             </div>
           </div>

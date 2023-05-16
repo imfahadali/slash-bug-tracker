@@ -190,7 +190,7 @@ export const getBarChartOptions = (dates: any[]) => {
 };
 
 export const getPercentage = (individual: number, total: number) => {
-  return (individual / total) * 100;
+  return ((individual / total) * 100).toFixed(2);
 };
 
 export const getPieChartOptions = (priorities: string[]) => {

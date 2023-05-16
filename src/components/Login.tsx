@@ -31,6 +31,15 @@ const Login = ({ setRegister }: Props) => {
     setSubmitting(false);
   };
 
+  const handleLoginWithTestAccount = async () => {
+    const values = { email: "fahadali2@gmail.com", password: "fahad123" };
+    setIsLoading(true);
+    const res = await loginUser(values);
+    if (res?.status === 200) setState.setUser({ ...res.data });
+    else setError(res?.data);
+    setIsLoading(false);
+  };
+
   return (
     <>
       <Formik
@@ -79,7 +88,11 @@ const Login = ({ setRegister }: Props) => {
                     <span className="underline">conditions</span>
                   </p>
                 </div>
-                <div className="p-5 bg-white md:flex-1">
+                <div
+                  className={`relative p-5 bg-white md:flex-1 ${
+                    isLoading ? "opacity-25" : ""
+                  }`}
+                >
                   <h3 className="my-4 text-2xl font-semibold text-gray-700">
                     Account Login
                   </h3>
@@ -168,6 +181,13 @@ const Login = ({ setRegister }: Props) => {
                         Log in
                       </button>
                     </div>
+                    <span
+                      className="flex justify-center cursor-pointer text-center w-full px-4 py-2 text-lg font-semibold text-white transition-colors duration-300 bg-black rounded-md shadow hover:opacity-80 focus:outline-none focus:ring-blue-200 focus:ring-4"
+                      // disabled={isSubmitting}
+                      onClick={handleLoginWithTestAccount}
+                    >
+                      Log in with Test Account
+                    </span>
                     {/* <div className="flex flex-col space-y-5">
                       <span className="flex items-center justify-center space-x-2">
                         <span className="h-px bg-gray-400 w-14"></span>
@@ -217,6 +237,11 @@ const Login = ({ setRegister }: Props) => {
                       </div> */}
                     {/* </div> */}
                   </form>
+                  {isLoading && (
+                    <span className="absolute top-1/2 left-1/2 -translate-y-5 -translate-x-1/2">
+                      <LoadingSpinner />
+                    </span>
+                  )}
                 </div>
               </div>
             </div>
