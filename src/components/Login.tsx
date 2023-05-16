@@ -88,18 +88,16 @@ const Login = ({ setRegister }: Props) => {
                     <span className="underline">conditions</span>
                   </p>
                 </div>
-                <div
-                  className={`relative p-5 bg-white md:flex-1 ${
-                    isLoading ? "opacity-25" : ""
-                  }`}
-                >
-                  <h3 className="my-4 text-2xl font-semibold text-gray-700">
-                    Account Login
-                  </h3>
+                <div className="relative p-5 bg-white md:flex-1">
                   <form
-                    className="flex flex-col space-y-5"
+                    className={`flex flex-col space-y-5 ${
+                      isLoading ? "opacity-25" : ""
+                    }`}
                     onSubmit={handleSubmit}
                   >
+                    <h3 className="mt-1 text-2xl font-semibold text-gray-700">
+                      Account Login
+                    </h3>
                     <div className="flex flex-col space-y-1">
                       <label
                         htmlFor="email"
@@ -238,9 +236,9 @@ const Login = ({ setRegister }: Props) => {
                     {/* </div> */}
                   </form>
                   {isLoading && (
-                    <span className="absolute top-1/2 left-1/2 -translate-y-5 -translate-x-1/2">
+                    <div className="absolute top-1/2 left-1/2 -translate-y-6 -translate-x-1/2 w-9 h-9">
                       <LoadingSpinner />
-                    </span>
+                    </div>
                   )}
                 </div>
               </div>

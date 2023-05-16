@@ -35,7 +35,7 @@ const ProjectInfo: React.FunctionComponent<IProjectInfoProps> = (props) => {
 
   return (
     <>
-      <div className="flex-6 flex flex-wrap m-5 overflow-y-auto overflow-x-hidden">
+      <div className="relative flex-6 flex flex-wrap m-5 overflow-y-auto overflow-x-hidden">
         {!loading ? (
           <>
             <ProjectDetail project={project} />
@@ -51,7 +51,9 @@ const ProjectInfo: React.FunctionComponent<IProjectInfoProps> = (props) => {
             {/* <Comment /> */}
           </>
         ) : (
-          <LoadingSpinner />
+          <div className="absolute top-1/2 left-1/2 -translate-y-6 -translate-x-1/2 w-10 h-10">
+            <LoadingSpinner />
+          </div>
         )}
       </div>
     </>

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import useFetch from "../hooks/useFetch";
 import UserContext from "../context/UserContext";
 import { assignTicket, unassignTicket } from "../utils/helperFunction";
@@ -12,6 +12,8 @@ const url = `${BACKEND_API}/ticket`;
 
 const Tickets = (props: ITicketsProps) => {
   const { state } = useContext(UserContext);
+
+  const [ticketChoosen, setTicketChoosen] = useState<null | number>(null);
 
   const email = state.role !== "admin" && state.email;
 
@@ -39,9 +41,11 @@ const Tickets = (props: ITicketsProps) => {
       token: state.token,
       ticketId: ticketId,
     };
+    setTicketChoosen(ticketId);
     assignee === "assign"
-      ? await assignTicket(userConfig)
-      : await unassignTicket(userConfig);
+    ? await assignTicket(userConfig)
+    : await unassignTicket(userConfig);
+    setTicketChoosen(null);
     refresh();
   };
   return (
@@ -134,33 +138,33 @@ const Tickets = (props: ITicketsProps) => {
                           </div>
                         </td>
                         <td className="text-right p-1 md:p-3">
-                          <button
-                            type="button"
-                            className="inline-block text-gray-600 hover:text-gray-700"
-                          >
-                            <span
-                              className="text-blue-600 hover:text-blue-400 font-semibold"
-                              onClick={handleAssign.bind(null, {
-                                assignee: "revoke",
-                                ticketId: ticket.id,
-                              })}
+                          {ticket.id != ticketChoosen ? (
+                            <button
+                              type="button"
+                              className="inline-block flex text-gray-600 hover:text-gray-700"
                             >
-                              Revoke
-                            </span>
-                            <svg
-                              className="hidden inline-block h-6 w-6 fill-current"
-                              viewBox="0 0 24 24"
-                            >
-                              <path d="M12 6a2 2 0 110-4 2 2 0 010 4zm0 8a2 2 0 110-4 2 2 0 010 4zm-2 6a2 2 0 104 0 2 2 0 00-4 0z" />
-                            </svg>
-                          </button>
+                              <span
+                                className="text-blue-600 hover:text-blue-400 font-semibold"
+                                onClick={handleAssign.bind(null, {
+                                  assignee: "revoke",
+                                  ticketId: ticket.id,
+                                })}
+                              >
+                                Revoke
+                              </span>
+                            </button>
+                          ) : (
+                            <div className="w-7 h-full ml-3">
+                              <LoadingSpinner />
+                            </div>
+                          )}
                         </td>
                       </tr>
                     ))
                   ) : (
                     <tr>
                       <td colSpan={5} className="text-center">
-                        <div className="my-2">
+                        <div className="my-2 w-9 h-9 mx-auto">
                           <LoadingSpinner />
                         </div>
                       </td>

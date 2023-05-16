@@ -48,7 +48,7 @@ const Analytics = (props: Props) => {
     : { pieChartOptions: undefined, priorityPercentages: undefined };
 
   return (
-    <div className="flex-6 flex overflow-auto p-5">
+    <div className="relative flex-6 flex overflow-auto p-5">
       {!loading ? (
         <div className="self-start grid grid-cols-12 gap-4 px-5 md:gap-6 2xl:gap-7.5">
           <PieChart
@@ -58,7 +58,9 @@ const Analytics = (props: Props) => {
           <BarChart barChartOptions={barChartOptions} />
         </div>
       ) : (
-        <LoadingSpinner />
+        <div className="absolute top-1/2 left-1/2 -translate-y-6 -translate-x-1/2 w-10 h-10">
+          <LoadingSpinner />
+        </div>
       )}
     </div>
   );

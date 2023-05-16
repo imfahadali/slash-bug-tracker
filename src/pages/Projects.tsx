@@ -24,11 +24,13 @@ const Projects = () => {
   });
 
   return (
-    <div className="flex-6 flex overflow-y-auto flex-col box-border">
+    <div className="relative flex-6 flex overflow-y-auto flex-col box-border">
       {!loading ? (
         <ProjectList fetchedProjects={project as IProjectOutput[]} />
       ) : (
-        <LoadingSpinner />
+        <div className="absolute top-1/2 left-1/2 -translate-y-6 -translate-x-1/2 w-10 h-10">
+          <LoadingSpinner />
+        </div>
       )}
     </div>
   );

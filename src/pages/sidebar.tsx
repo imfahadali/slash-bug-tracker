@@ -12,7 +12,7 @@ const Sidebar = () => {
   console.log(currentPath.includes("/ticket"));
   return (
     <div className="p-3 sticky h-screen -translate-y-16	top-0 w-64 bg-blue-900 text-white flex-1 cursor-pointer rounded-r-lg z-50">
-      <h1 className="mr-auto font-bold text-3xl p-3 pt-0">Slash</h1>
+      <h1 className="mr-auto font-bold text-3xl p-3 pt-0" onClick={() => navigate("/")}>Slash</h1>
 
       <span className="text-xs pt-3 font-bold text-gray-300">Dasboard</span>
       <div className="mx-3">
