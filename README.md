@@ -64,11 +64,12 @@ To get started with Slash, follow these steps:
 4. Configure the environment variables BE:
 
    Create .env and add all the necessary configuration options:
-   -DATABASE_URL
-   -TOKEN_KEY
-   -AWS_S3_ACCESS_KEY_ID
-   -AWS_S3_SECRET_ACCESS_KEY
-   -BUCKET_NAME
+
+- `DATABASE_URL`: [description of the database URL]
+- `TOKEN_KEY`: [description of the token key]
+- `AWS_S3_ACCESS_KEY_ID`: [description of the AWS S3 access key ID]
+- `AWS_S3_SECRET_ACCESS_KEY`: [description of the AWS S3 secret access key]
+- `BUCKET_NAME`: [description of the bucket name]
 
 5. Start the development server(FE):
 
@@ -85,4 +86,4 @@ To get started with Slash, follow these steps:
 
 7. Configure the environment variables FE:
    Create .env and add the necessary configuration option:
-   -VITE_BACKEND_API=http://localhost:4000
+- `VITE_BACKEND_API`=http://localhost:4000
