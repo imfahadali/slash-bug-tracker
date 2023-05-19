@@ -22,27 +22,27 @@ Slash offers the following key features:
 
 Slash is built using modern web technologies and frameworks. The key tools and technologies used in the development of Slash include:
 
-- **Frontend:**
+### Frontend
 
-  - React.js: A popular JavaScript library for building user interfaces, providing a robust and efficient foundation for the frontend of Slash.
-  - TypeScript: A typed superset of JavaScript that enhances developer productivity and code quality by providing static types.
-  - Tailwind CSS: A highly customizable CSS framework that enables rapid UI development with pre-defined utility classes and responsive design capabilities.
-  - Vite: A fast and lightweight development server and build tool, used to create a blazing-fast development environment for Slash.
-  - Formik: A popular form library for React, making it easy to manage and validate forms in a robust and maintainable manner.
-  - Yup: A JavaScript schema builder for value parsing and validation, used in conjunction with Formik to create validation schemas.
-  - React Router Dom: A routing library for React that allows for easy navigation and routing within the application.
+- **React.js**: A popular JavaScript library for building user interfaces.
+- **TypeScript**: A typed superset of JavaScript for enhanced productivity and code quality.
+- **Tailwind CSS**: A highly customizable CSS framework for rapid UI development.
+- **Vite**: A fast and lightweight development server and build tool.
+- **Formik**: A popular form library for managing and validating forms.
+- **Yup**: A JavaScript schema builder for value parsing and validation.
+- **React Router Dom**: A routing library for easy navigation within the application.
 
-- **Backend:**
+### Backend
 
-  - Node.js: A JavaScript runtime environment that allows for server-side development, powering the backend functionality of Slash.
-  - Express: A fast and minimalist web application framework for Node.js, used to build the server-side API endpoints.
-  - JSON Web Token (JWT): A secure method for transmitting information between parties as JSON objects, used for authentication and authorization.
-  - bcryptjs: A library for hashing and salting passwords, providing secure password storage for user authentication.
-  - AWS S3: An object storage service provided by Amazon Web Services, used for file uploading and storage in Slash.
-  - Prisma: A modern database toolkit for Node.js and TypeScript, used as the ORM (Object-Relational Mapping) tool for database operations.
-  - PostgreSQL: A powerful open-source relational database management system, used as the backend database for Slash.
-  - Google Cloud App Engine: A fully managed serverless application platform provided by Google Cloud, used to host the Slash application.
-  - Google Cloud SQL: A fully managed relational database service provided by Google Cloud, used to host the Slash database.
+- **Node.js**: A JavaScript runtime environment for server-side development.
+- **Express**: A fast and minimalist web application framework for Node.js.
+- **JSON Web Token (JWT)**: A secure method for transmitting information between parties.
+- **bcryptjs**: A library for hashing and salting passwords for secure storage.
+- **AWS S3**: Object storage service for file uploading and storage.
+- **Prisma**: A modern database toolkit for Node.js and TypeScript.
+- **PostgreSQL**: A powerful open-source relational database management system.
+- **Google Cloud App Engine**: A fully managed serverless application platform for hosting.
+- **Google Cloud SQL**: A fully managed relational database service for hosting the database.
 
 ## Getting Started
 
