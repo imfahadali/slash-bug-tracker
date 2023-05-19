@@ -2,7 +2,6 @@
 
 ![](https://github.com/imfahadali/netflix-frontend-mern/blob/main/public/netflix-app.gif)
 
-
 Slash is a comprehensive bug tracking tool designed to streamline project management and issue tracking. With Slash, you can efficiently create projects, add authors to your projects, create tickets, assign tickets to authors, and analyze user activity. This README file provides an overview of the features, tools used, and instructions to get started with Slash.
 
 ## Features
@@ -44,4 +43,38 @@ To get started with Slash, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/imfahadali/social-media-app-merng-client.git
+   git clone https://github.com/imfahadali/slash-bug-tracker.git
+
+   ```
+
+2. Clone the Backend repository:
+
+   ```bash
+   git clone https://github.com/imfahadali/slash-bug-tracker-be.git
+
+   ```
+
+3. Install BE dependencies:
+
+   cd slash-bug-tracker-be
+   npm install
+
+4. Configure the environment variables BE:
+
+   Create .env and add all the necessary configuration options:
+   -DATABASE_URL
+   -TOKEN_KEY
+   -AWS_S3_ACCESS_KEY_ID
+   -AWS_S3_SECRET_ACCESS_KEY
+   -BUCKET_NAME
+
+5. Start the development server(FE):
+   npm start
+
+6. Install FE dependencies:
+   cd ../slash-bug-tracker
+   npm install
+
+7. Configure the environment variables FE:
+   Create .env and add the necessary configuration option:
+   -VITE_BACKEND_API=http://localhost:4000
