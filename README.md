@@ -56,8 +56,10 @@ To get started with Slash, follow these steps:
 
 3. Install BE dependencies:
 
+   ```bash
    cd slash-bug-tracker-be
    npm install
+   ```
 
 4. Configure the environment variables BE:
 
@@ -69,11 +71,17 @@ To get started with Slash, follow these steps:
    -BUCKET_NAME
 
 5. Start the development server(FE):
+
+   ```bash
    npm start
+   ```
 
 6. Install FE dependencies:
+
+   ```bash
    cd ../slash-bug-tracker
    npm install
+   ```
 
 7. Configure the environment variables FE:
    Create .env and add the necessary configuration option:
